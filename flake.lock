@@ -19,17 +19,16 @@
     "chacha": {
       "flake": false,
       "locked": {
-        "lastModified": 1544045891,
-        "narHash": "sha256-mgZooyfxrKBVQFn01B8PULmFUW9Zq5HJfgHCSJSkJo4=",
-        "owner": "burgerdev",
-        "repo": "ocaml-rfc7748",
-        "rev": "005541d49905775823110981d5f81a00eb3e724f",
+        "lastModified": 1628179977,
+        "narHash": "sha256-QuyygkCKyC6iTJQakcCWP7GFcMav/VEHlf6rQ2uPXLU=",
+        "owner": "abeaumont",
+        "repo": "ocaml-chacha",
+        "rev": "7b7229b6bfc77036a4e86f3c3868bac424ed9131",
         "type": "github"
       },
       "original": {
-        "owner": "burgerdev",
-        "ref": "v1.0",
-        "repo": "ocaml-rfc7748",
+        "owner": "abeaumont",
+        "repo": "ocaml-chacha",
         "type": "github"
       }
     },
@@ -70,7 +69,25 @@
         "callipyge": "callipyge",
         "chacha": "chacha",
         "nixpkgs": "nixpkgs",
-        "rfc7748": "rfc7748"
+        "rfc7748": "rfc7748",
+        "tweetnacl": "tweetnacl"
+      }
+    },
+    "tweetnacl": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1629205003,
+        "narHash": "sha256-JvvmKuR1lDyb+Mmi7mYdLJUAOk/Kh4cTkzP2/Rsd2XM=",
+        "owner": "fufexan",
+        "repo": "ocaml-tweetnacl",
+        "rev": "aa77257d1c0f29b08f0b8a3bc8741661dcff50a7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fufexan",
+        "ref": "dune",
+        "repo": "ocaml-tweetnacl",
+        "type": "github"
       }
     }
   },

@@ -7,6 +7,7 @@
     callipyge = { url = "github:oklm-wsh/Callipyge"; flake = false; };
     chacha = { url = "github:abeaumont/ocaml-chacha"; flake = false; };
     rfc7748 = { url = "github:burgerdev/ocaml-rfc7748"; flake = false; };
+    tweetnacl = { url = "github:fufexan/ocaml-tweetnacl/dune"; flake = false; };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -51,6 +52,11 @@
             rfc7748 = prev.callPackage ./pkgs/rfc7748 {
               src = inputs.rfc7748;
               inherit (prevOcamlPackages) buildDunePackage hex ounit zarith;
+            };
+
+            tweetnacl = prev.callPackage ./pkgs/tweetnacl {
+              src = inputs.tweetnacl;
+              inherit (prevOcamlPackages) buildDunePackage alcotest bigstring hex ocplib-endian zarith;
             };
           };
           in ocamlPackages;
