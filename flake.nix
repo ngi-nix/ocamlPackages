@@ -35,11 +35,10 @@
     {
       overlay = final: prev:
         let mkOcamlPackages = prevOcamlPackages:
-          with prevOcamlPackages;
           let ocamlPackages = {
             callipyge = prev.callPackage ./pkgs/callipyge {
               src = inputs.callipyge;
-              inherit buildDunePackage eqaf fmt;
+              inherit (prevOcamlPackages) buildDunePackage alcotest eqaf fmt;
             };
           };
           in ocamlPackages;
@@ -49,7 +48,7 @@
             mkOcamlPackages final.ocaml-ng.${ocamlPackages});
         in
         allOcamlPackages // {
-          ocamlPackages = allOcamlPackages.${defaultOcamlPackages};
+          ocamlPackages = allOcamlPackages.${defaultOcamlPackages} // prev.ocamlPackages;
         };
 
       ocamlPackages =

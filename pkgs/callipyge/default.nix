@@ -2,6 +2,7 @@
 , buildDunePackage
 , src
 
+, alcotest
 , eqaf
 , fmt
 }:
@@ -14,5 +15,5 @@ buildDunePackage {
   useDune2 = true;
   doCheck = true;
 
-  nativeBuildInputs = [ fmt eqaf ];
+  buildInputs = [ alcotest fmt eqaf ];
 }
