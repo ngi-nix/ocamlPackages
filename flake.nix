@@ -4,9 +4,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    callipyge = { url = "github:oklm-wsh/Callipyge"; flake = false; };
-    chacha = { url = "github:abeaumont/ocaml-chacha"; flake = false; };
-    rfc7748 = { url = "github:burgerdev/ocaml-rfc7748"; flake = false; };
+    callipyge = { url = "github:oklm-wsh/Callipyge/v0.2"; flake = false; };
+    chacha = { url = "github:abeaumont/ocaml-chacha/1.0.0"; flake = false; };
+    rfc7748 = { url = "github:burgerdev/ocaml-rfc7748/v1.0"; flake = false; };
     tweetnacl = { url = "github:fufexan/ocaml-tweetnacl/dune"; flake = false; };
   };
 

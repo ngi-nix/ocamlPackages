@@ -3,15 +3,16 @@
     "callipyge": {
       "flake": false,
       "locked": {
-        "lastModified": 1535980902,
-        "narHash": "sha256-ZGDPVVSbuPBIU/lbkLIio7mDulb0AIpSS4ZZ9VY9euY=",
+        "lastModified": 1536058409,
+        "narHash": "sha256-Xfx96s2MwnfojaF0cWTxgeJeDZNJ93hfv/rhvBQMycU=",
         "owner": "oklm-wsh",
         "repo": "Callipyge",
-        "rev": "efe80c64fb9acdf2f9bd0ecd006baa969ab2c257",
+        "rev": "dd5f983ec7bf623e01be3a75a507d5c42cfad524",
         "type": "github"
       },
       "original": {
         "owner": "oklm-wsh",
+        "ref": "v0.2",
         "repo": "Callipyge",
         "type": "github"
       }
@@ -19,15 +20,16 @@
     "chacha": {
       "flake": false,
       "locked": {
-        "lastModified": 1628179977,
-        "narHash": "sha256-QuyygkCKyC6iTJQakcCWP7GFcMav/VEHlf6rQ2uPXLU=",
+        "lastModified": 1585653747,
+        "narHash": "sha256-1n0VlMB2q4Lxvqx4HMkHBVik38sa1QFS6Wdj2eS1D28=",
         "owner": "abeaumont",
         "repo": "ocaml-chacha",
-        "rev": "7b7229b6bfc77036a4e86f3c3868bac424ed9131",
+        "rev": "1cb287ae53b21db413cabfbd1df51b059fc616a7",
         "type": "github"
       },
       "original": {
         "owner": "abeaumont",
+        "ref": "1.0.0",
         "repo": "ocaml-chacha",
         "type": "github"
       }
@@ -51,15 +53,16 @@
     "rfc7748": {
       "flake": false,
       "locked": {
-        "lastModified": 1604094585,
-        "narHash": "sha256-26w6YcjBgfe2Fz/Z0RvCdU0MR4MAxIk2HGQ0ri0rrqU=",
+        "lastModified": 1544045891,
+        "narHash": "sha256-mgZooyfxrKBVQFn01B8PULmFUW9Zq5HJfgHCSJSkJo4=",
         "owner": "burgerdev",
         "repo": "ocaml-rfc7748",
-        "rev": "ed034213ff02cd55870ae1387e91deebc9838eb4",
+        "rev": "005541d49905775823110981d5f81a00eb3e724f",
         "type": "github"
       },
       "original": {
         "owner": "burgerdev",
+        "ref": "v1.0",
         "repo": "ocaml-rfc7748",
         "type": "github"
       }
