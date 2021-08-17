@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     callipyge = { url = "github:oklm-wsh/Callipyge"; flake = false; };
+    chacha = { url = "github:abeaumont/ocaml-chacha"; flake = false; };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -39,6 +40,11 @@
             callipyge = prev.callPackage ./pkgs/callipyge {
               src = inputs.callipyge;
               inherit (prevOcamlPackages) buildDunePackage alcotest eqaf fmt;
+            };
+
+            chacha = prev.callPackage ./pkgs/chacha {
+              src = inputs.chacha;
+              inherit (prevOcamlPackages) buildDunePackage alcotest cstruct mirage-crypto;
             };
           };
           in ocamlPackages;

@@ -16,6 +16,23 @@
         "type": "github"
       }
     },
+    "chacha": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1585653747,
+        "narHash": "sha256-1n0VlMB2q4Lxvqx4HMkHBVik38sa1QFS6Wdj2eS1D28=",
+        "owner": "abeaumont",
+        "repo": "ocaml-chacha",
+        "rev": "1cb287ae53b21db413cabfbd1df51b059fc616a7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abeaumont",
+        "ref": "1.0.0",
+        "repo": "ocaml-chacha",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1629048390,
@@ -35,6 +52,7 @@
     "root": {
       "inputs": {
         "callipyge": "callipyge",
+        "chacha": "chacha",
         "nixpkgs": "nixpkgs"
       }
     }
