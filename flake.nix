@@ -6,6 +6,7 @@
 
     callipyge = { url = "github:oklm-wsh/Callipyge/v0.2"; flake = false; };
     chacha = { url = "github:abeaumont/ocaml-chacha/1.0.0"; flake = false; };
+    noise = { url = "github:emillon/ocaml-noise/v0.2.0"; flake = false; };
     rfc7748 = { url = "github:burgerdev/ocaml-rfc7748/v1.0"; flake = false; };
     tweetnacl = { url = "github:fufexan/ocaml-tweetnacl/dune"; flake = false; };
   };
@@ -38,7 +39,7 @@
     {
       overlay = final: prev:
         let mkOcamlPackages = prevOcamlPackages:
-          let ocamlPackages = {
+          let ocamlPackages = rec {
             callipyge = prev.callPackage ./pkgs/callipyge {
               src = inputs.callipyge;
               inherit (prevOcamlPackages) buildDunePackage alcotest eqaf fmt;
@@ -47,6 +48,15 @@
             chacha = prev.callPackage ./pkgs/chacha {
               src = inputs.chacha;
               inherit (prevOcamlPackages) buildDunePackage alcotest cstruct mirage-crypto;
+            };
+
+            noise = prev.callPackage ./pkgs/noise {
+              src = inputs.noise;
+              inherit (prevOcamlPackages) buildDunePackage benchmark cstruct digestif
+                eqaf fmt hex lwt lwt_ppx nocrypto ounit ppx_let ppx_deriving_yojson
+                yojson
+                ;
+              inherit callipyge chacha rfc7748 tweetnacl;
             };
 
             rfc7748 = prev.callPackage ./pkgs/rfc7748 {

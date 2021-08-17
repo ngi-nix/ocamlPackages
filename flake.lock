@@ -50,6 +50,23 @@
         "type": "github"
       }
     },
+    "noise": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1539968554,
+        "narHash": "sha256-RhUtEh8sOzXIFTvDBXbeg6h+DwVJIJkilhQmYB6V/fM=",
+        "owner": "emillon",
+        "repo": "ocaml-noise",
+        "rev": "0eebef547b3757fd09b4d8543788901c1443a15e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emillon",
+        "ref": "v0.2.0",
+        "repo": "ocaml-noise",
+        "type": "github"
+      }
+    },
     "rfc7748": {
       "flake": false,
       "locked": {
@@ -72,6 +89,7 @@
         "callipyge": "callipyge",
         "chacha": "chacha",
         "nixpkgs": "nixpkgs",
+        "noise": "noise",
         "rfc7748": "rfc7748",
         "tweetnacl": "tweetnacl"
       }
