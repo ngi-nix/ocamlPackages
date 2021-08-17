@@ -6,6 +6,7 @@
 
     callipyge = { url = "github:oklm-wsh/Callipyge"; flake = false; };
     chacha = { url = "github:abeaumont/ocaml-chacha"; flake = false; };
+    rfc7748 = { url = "github:burgerdev/ocaml-rfc7748"; flake = false; };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -45,6 +46,11 @@
             chacha = prev.callPackage ./pkgs/chacha {
               src = inputs.chacha;
               inherit (prevOcamlPackages) buildDunePackage alcotest cstruct mirage-crypto;
+            };
+
+            rfc7748 = prev.callPackage ./pkgs/rfc7748 {
+              src = inputs.rfc7748;
+              inherit (prevOcamlPackages) buildDunePackage hex ounit zarith;
             };
           };
           in ocamlPackages;
