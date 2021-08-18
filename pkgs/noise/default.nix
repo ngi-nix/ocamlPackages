@@ -5,11 +5,7 @@
 , benchmark
 , callipyge
 , chacha
-, cstruct
 , digestif
-, eqaf
-, fmt
-, hex
 , lwt
 , lwt_ppx
 , nocrypto
@@ -18,34 +14,41 @@
 , ppx_deriving_yojson
 , rfc7748
 , tweetnacl
-, yojson
 }:
 
 buildDunePackage {
   pname = "noise";
   version = "0.2.0";
+
   inherit src;
 
   useDune2 = true;
-  doCheck = true;
 
-  buildInputs = [
+  minimumOCamlVersion = "4.05";
+
+  doCheck = true;
+  checkInputs = [
     benchmark
+    lwt_ppx
+    ounit
+    ppx_deriving_yojson
+  ];
+
+  propagatedBuildInputs = [
     callipyge
     chacha
-    cstruct
     digestif
-    eqaf
-    fmt
-    hex
     lwt
-    lwt_ppx
     nocrypto
-    ounit
     ppx_let
-    ppx_deriving_yojson
     rfc7748
     tweetnacl
-    yojson
   ];
+
+  meta = {
+    homepage = "https://github.com/emillon/ocaml-noise";
+    description = "OCaml implementation of the Noise Protocol Framework";
+    license = lib.licenses.bsd2;
+    maintainers = with lib.maintainers; [ fufexan ];
+  };
 }

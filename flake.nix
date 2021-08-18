@@ -47,14 +47,15 @@
 
             chacha = prev.callPackage ./pkgs/chacha {
               src = inputs.chacha;
-              inherit (prevOcamlPackages) buildDunePackage alcotest cstruct mirage-crypto;
+              inherit (prevOcamlPackages) buildDunePackage ocaml alcotest
+                cstruct mirage-crypto
+                ;
             };
 
             noise = prev.callPackage ./pkgs/noise {
               src = inputs.noise;
-              inherit (prevOcamlPackages) buildDunePackage benchmark cstruct digestif
-                eqaf fmt hex lwt lwt_ppx nocrypto ounit ppx_let ppx_deriving_yojson
-                yojson
+              inherit (prevOcamlPackages) buildDunePackage benchmark digestif
+                lwt lwt_ppx nocrypto ounit ppx_let ppx_deriving_yojson
                 ;
               inherit callipyge chacha rfc7748 tweetnacl;
             };
@@ -66,7 +67,9 @@
 
             tweetnacl = prev.callPackage ./pkgs/tweetnacl {
               src = inputs.tweetnacl;
-              inherit (prevOcamlPackages) buildDunePackage alcotest bigstring hex ocplib-endian zarith;
+              inherit (prevOcamlPackages) buildDunePackage ocaml alcotest
+                bigstring hex ocplib-endian zarith
+                ;
             };
           };
           in ocamlPackages;
