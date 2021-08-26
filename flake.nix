@@ -1,15 +1,7 @@
 {
   description = "OCaml Packages";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    callipyge = { url = "github:oklm-wsh/Callipyge/v0.2"; flake = false; };
-    chacha = { url = "github:abeaumont/ocaml-chacha/1.0.0"; flake = false; };
-    noise = { url = "github:emillon/ocaml-noise/v0.2.0"; flake = false; };
-    rfc7748 = { url = "github:burgerdev/ocaml-rfc7748/v1.0"; flake = false; };
-    tweetnacl = { url = "github:fufexan/ocaml-tweetnacl/dune"; flake = false; };
-  };
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   outputs = { self, nixpkgs, ... }@inputs:
     let
@@ -41,35 +33,27 @@
         let mkOcamlPackages = prevOcamlPackages:
           let ocamlPackages = rec {
             callipyge = prev.callPackage ./pkgs/callipyge {
-              src = inputs.callipyge;
-              inherit (prevOcamlPackages) buildDunePackage alcotest eqaf fmt;
+              inherit (prevOcamlPackages) buildDunePackage ocaml alcotest eqaf
+                fmt
+                ;
             };
 
             chacha = prev.callPackage ./pkgs/chacha {
-              src = inputs.chacha;
               inherit (prevOcamlPackages) buildDunePackage ocaml alcotest
                 cstruct mirage-crypto
                 ;
             };
 
             noise = prev.callPackage ./pkgs/noise {
-              src = inputs.noise;
-              inherit (prevOcamlPackages) buildDunePackage benchmark digestif
-                lwt lwt_ppx nocrypto ounit ppx_let ppx_deriving_yojson
+              inherit (prevOcamlPackages) buildDunePackage digestif hex lwt
+                lwt_ppx nocrypto ounit ppxlib ppx_let ppx_deriving
+                ppx_deriving_yojson
                 ;
-              inherit callipyge chacha rfc7748 tweetnacl;
+              inherit callipyge chacha;
             };
 
             rfc7748 = prev.callPackage ./pkgs/rfc7748 {
-              src = inputs.rfc7748;
-              inherit (prevOcamlPackages) buildDunePackage hex ounit zarith;
-            };
-
-            tweetnacl = prev.callPackage ./pkgs/tweetnacl {
-              src = inputs.tweetnacl;
-              inherit (prevOcamlPackages) buildDunePackage ocaml alcotest
-                bigstring hex ocplib-endian zarith
-                ;
+              inherit (prevOcamlPackages) buildDunePackage ounit zarith;
             };
           };
           in ocamlPackages;

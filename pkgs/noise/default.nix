@@ -1,48 +1,54 @@
 { lib
 , buildDunePackage
-, src
+, fetchurl
 
-, benchmark
 , callipyge
 , chacha
 , digestif
+, hex
 , lwt
 , lwt_ppx
 , nocrypto
 , ounit
+, ppxlib
 , ppx_let
+, ppx_deriving
 , ppx_deriving_yojson
-, rfc7748
-, tweetnacl
 }:
 
-buildDunePackage {
+buildDunePackage rec {
   pname = "noise";
   version = "0.2.0";
 
-  inherit src;
+  src = fetchurl {
+    url = "https://github.com/emillon/ocaml-noise/releases/download/v${version}/${pname}-v${version}.tbz";
+    sha256 = "sha256-fe3pT7fsuF2hCvXpInsRg6OvARs/eAh1Un454s1osDs=";
+  };
 
   useDune2 = true;
 
-  minimumOCamlVersion = "4.05";
+  minimumOCamlVersion = "4.04";
 
-  doCheck = true;
-  checkInputs = [
-    benchmark
-    lwt_ppx
-    ounit
-    ppx_deriving_yojson
+  nativeBuildInputs = [
+    ppxlib
+    ppx_deriving
+    ppx_let
   ];
 
   propagatedBuildInputs = [
     callipyge
     chacha
     digestif
-    lwt
+    hex
     nocrypto
-    ppx_let
-    rfc7748
-    tweetnacl
+  ];
+
+  doCheck = true;
+  checkInputs = [
+    lwt
+    lwt_ppx
+    ounit
+    ppx_deriving_yojson
   ];
 
   meta = {
